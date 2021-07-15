@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>TO-DO-LIST-APP</title>
+
+    </head>
+    <body>
+        <div class="container" style="background-color: chartreuse;height: 100%;">
+        <h2 class="row">TO-DO-LIST</h2>
+        <br><br>
+        <div class="row">
+            <form>
+                <div class="input-group">
+         <input type="text" placeholder="Type Here" id="box" style="width: 30vw; padding: 14px;">
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="button" value="Add" style="width: 10vw;padding: 8px; background-color:fuchsia;font-size: larger;"
+         onclick="additem()">
+         <h5 style="font-family: 'Times New Roman', Times, serif; font-size: medium;"
+         >Click on the below list item to delete</h5>
+    </div>
+            </form>
+        </div>
+        <div class="row" >
+            <ul id="list-item" style="cursor: pointer;"></ul>
+        </div>
+        </div>
+        <script>
+            function additem(){
+                let item = document.getElementById("box");
+                let list_item=document.getElementById("list-item");
+                if (item.value !=""){
+                    let make_li = document.createElement("li");
+                    make_li.appendChild(document.createTextNode(item.value));
+                    list_item.appendChild(make_li)
+                    item.value=""
+
+                    make_li.onclick = function(){
+                        this.parentNode.removeChild(this);
+
+                    }
+                }
+                else{
+                    alert("Please add a value to item");
+                }
+            }
+        </script>
+    </body>
+    
+</html>
